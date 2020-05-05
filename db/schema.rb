@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_150620) do
+ActiveRecord::Schema.define(version: 2020_05_05_084242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,24 @@ ActiveRecord::Schema.define(version: 2020_05_04_150620) do
     t.index ["city_id"], name: "index_coaches_on_city_id"
     t.index ["email"], name: "index_coaches_on_email", unique: true
     t.index ["reset_password_token"], name: "index_coaches_on_reset_password_token", unique: true
+  end
+
+  create_table "program_spheres", force: :cascade do |t|
+    t.bigint "program_id"
+    t.bigint "sphere_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["program_id"], name: "index_program_spheres_on_program_id"
+    t.index ["sphere_id"], name: "index_program_spheres_on_sphere_id"
+  end
+
+  create_table "programs", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "coach_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coach_id"], name: "index_programs_on_coach_id"
   end
 
   create_table "spheres", force: :cascade do |t|

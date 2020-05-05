@@ -6,5 +6,5 @@ class Coach < ApplicationRecord
   belongs_to :city
   has_many :coach_spheres
   has_many :spheres, through: :coach_spheres
-
+  has_many :programs
 end
