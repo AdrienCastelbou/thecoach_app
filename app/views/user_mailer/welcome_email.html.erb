@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bonjour <%= @user.username %> et bienvenue.</h1>
+    <p>
+      L'équipe de TheCoach est ravie de vous compter parmi ses utilisateurs. Vous pouvez dès maintenant découvrir nos coachs et leurs programmes, fait sur mesure !
+    </p>
+    <p>
+      Vous pouvez accéder à votre compte en utilisant votre email : <%= @user.email %>.
+    </p>
+    <p>
+      Pour vous connecter, voici le lien : <%= @url %>.
+    </p>
+    <p>
+      À bientôt sur TheCoach!
+    </p>
+  </body>
+</html>
