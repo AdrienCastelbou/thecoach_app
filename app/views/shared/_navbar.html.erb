@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <h1><%= link_to 'TheCoach', root_path, class: "navbar-text-white"%></h1>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    <% if current_coach%>
+      <li class="nav-item">
+        <%= link_to 'Profil', coach_path(current_coach), class: "nav-link navbar-text-white"%>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Se déconnecter', destroy_coach_session_path, method: :delete, class: "nav-link navbar-text-white"%>
+      </li>
+      <% elsif current_user%>
+      <li class="nav-item">
+        <%= link_to 'Profil', user_path(current_user), class: "nav-link navbar-text-white"%>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Se déconnecter', destroy_coach_session_path, method: :delete, class: "nav-link navbar-text-white"%>
+      </li>
+      <% else %>
+        <li class="nav-item active">
+          <%= link_to "Se connecter", new_user_session_path, class:"navbar-text-white" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "S'inscrire", new_user_registration_path, class:"navbar-text-white" %>
+        </li>
+        <li class="nav-item dropdown ">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Je suis Coach
+            </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'Se connecter', new_coach_session_path, class: "dropdown-item"%>
+            <%= link_to 'S\'inscrire', new_coach_registration_path, class: "dropdown-item"%>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
