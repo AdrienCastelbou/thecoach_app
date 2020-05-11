@@ -1,0 +1,26 @@
+<div class= "container">
+  <h1>Hzllo <%= @coach.username%></h1>
+  <h2>Infos personnelles</h2>
+  <ul>
+    <li><%= @coach.email%></li>
+    <li><%= @coach.city.name%></li>
+    <li><%= @coach.description%></li>
+  </ul>
+  <h2>Spheres</h2>
+  <ul>
+    <%@coach.spheres.each do |sphere|%>
+      <li><%=sphere.name%></li>
+    <% end %>
+  </ul>
+    <h2>Programmes</h2>
+  <ul>
+    <%@coach.programs.each do |program|%>
+      <li><%program.title%></li>
+    <% end %>
+  </ul>
+  <p>Pour pouvoir etre visible sur notre plateforme, vous devez completer votre profil !
+  <%= link_to "Modifier mon profil ", edit_coach_path(@coach)%></p>
+  <p>Modifier les infos du compte
+  <%= link_to 'Paramètres du compte',edit_coach_registration_path, class:'button' %></p>
+
+</div>
