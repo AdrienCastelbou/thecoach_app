@@ -17,3 +17,54 @@
   transition: 100ms ease-in-out;
   
 }
+
+.jumbotron
+{
+  background: url( "/images/img_jumbotron.jpeg") no-repeat center;
+  color: aliceblue;
+  text-align: center;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+}
+
+.jumbotron form
+{
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  width: 580px;
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+  
+}
+.row
+{
+  display: flex;
+  justify-content: center;
+  
+}
+.jumbotron form
+{
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  width: 580px;
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+  
+}
+.search
+{
+  border: none;
+
+}
+
+.search:focus
+{
+  
+  box-shadow: none;
+  color: rgb(9, 129, 5);
+}
