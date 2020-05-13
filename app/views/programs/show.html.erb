@@ -1,0 +1,8 @@
+<h1><%= @program.title%></h1>
+<p>Par <%= @program.coach.username%></p>
+<p><%@program.program_spheres.each do |program_sphere|%>
+  <%=program_sphere.sphere.name%>
+<% end %>
+</p>
+<p><%=@program.description%></p>
+<br>

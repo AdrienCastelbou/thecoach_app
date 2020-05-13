@@ -14,9 +14,10 @@
     <h2>Programmes</h2>
   <ul>
     <%@coach.programs.each do |program|%>
-      <li><%program.title%></li>
+      <li><%= link_to program.title, coach_program_path(@coach, program.id)%></li>
     <% end %>
   </ul>
+  <%= link_to "Créer un nouveau programme", new_coach_program_path(@coach)%>
   <p>Pour pouvoir etre visible sur notre plateforme, vous devez completer votre profil !
   <%= link_to "Modifier mon profil ", edit_coach_path(@coach)%></p>
   <p>Modifier les infos du compte

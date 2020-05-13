@@ -55,7 +55,8 @@ class CoachesController < ApplicationController
 
   def set_coach_sphere
     if params[:sphere_id] != "" && CoachSphere.create(coach: @coach, sphere_id: params[:sphere_id])
+      return true
     end
   end
-
+  
 end

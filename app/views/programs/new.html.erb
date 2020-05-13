@@ -1,0 +1,31 @@
+<%= form_tag coach_programs_path, method: "post" do%>
+  <h1 class="h3 mb-3 font-weight-normal text-center">Créer un nouveau programme</h1>
+  <div class="form-group">
+    <%= label_tag 'Titre' %>
+    <%= text_field_tag 'title', "", class: 'form-control', placeholder: "Nommez votre programme" %>
+  </div>
+  <br /> <br />
+  <div class="form-group">
+    <%= label_tag 'Description' %>
+    <%= text_area_tag 'description', "", class: 'form-control', placeholder: "Décrivez en quoi consiste votre programme (niveau, durée, tarifs, ...)" %>
+  </div>
+  <br /> <br />
+    <div class="form-group">
+      <%= label_tag 'Domaine' %>
+      <%= select_tag 'program_sphere_id', options_for_select(@spheres), prompt: "Sélectionner une catégorie", class:"u-full-width" %>
+  </div>
+  <br /> <br />
+  <div class="form-actions">
+      <%= submit_tag "Créer un programme", class: "btn btn-success" %>
+  </div>
+<% end %>
+<% if @program.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+  <p>Nous n'avons pas réussi à créer votre programme pour la (ou les) raison(s) suivante(s) :</p>
+  <ul>
+    <% @program.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>
