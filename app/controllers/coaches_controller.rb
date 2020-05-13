@@ -13,7 +13,7 @@ class CoachesController < ApplicationController
   end
 
   def edit
-
+    @spheres = Sphere.all.map{|s| [ s.name, s.id ] }
   end
 
   def create

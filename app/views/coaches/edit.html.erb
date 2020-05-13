@@ -10,6 +10,11 @@
     <%= text_field_tag 'city', @coach.city.name, class: 'form-control' %>
   </div>
   <br /> <br />
+    <div class="form-group">
+      <%= label_tag 'Domaine' %>
+      <%= select_tag 'sphere_id', options_for_select(@spheres), prompt: "Sélectionner une catégorie", class:"u-full-width" %>
+  </div>
+  <br /> <br />
   <div class="form-actions">
       <%= submit_tag "Modifier mon Profil", class: "btn btn-success" %>
   </div>
