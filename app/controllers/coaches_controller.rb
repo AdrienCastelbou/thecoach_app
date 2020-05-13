@@ -21,7 +21,8 @@ class CoachesController < ApplicationController
   end
 
   def update
-    if @coach.update(description: params[:description], city: coach_city)
+    set_coach_sphere
+    if @coach.update(username: params[:username], description: params[:description], city: coach_city)
       redirect_to coach_path(@coach),  :notice => "Votre profil a bien été modifié."
     else
       redirect_back(fallback_location: coach_path(@coach))
@@ -49,6 +50,11 @@ class CoachesController < ApplicationController
         end
       end
       return City.create(name: city.capitalize)
+    end
+  end
+
+  def set_coach_sphere
+    if params[:sphere_id] != "" && CoachSphere.create(coach: @coach, sphere_id: params[:sphere_id])
     end
   end
 

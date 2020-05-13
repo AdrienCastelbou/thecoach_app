@@ -1,6 +1,11 @@
 <%= form_tag coach_path, method: "put" do%>
   <h1 class="h3 mb-3 font-weight-normal text-center">Modifier mon profil</h1>
   <div class="form-group">
+    <%= label_tag 'Username' %>
+    <%= text_field_tag 'username', @coach.username, class: 'form-control' %>
+  </div>
+  <br /> <br />
+  <div class="form-group">
     <%= label_tag 'Description' %>
     <%= text_field_tag 'description', @coach.description, class: 'form-control' %>
   </div>
