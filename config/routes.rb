@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :coaches do
     resources :programs
   end
+  resources :coach_spheres, only: [:create, :destroy]
   resources :users
   resources :spheres
   root to: "coaches#index"

@@ -1,6 +1,6 @@
 class ProgramsController < ApplicationController
   before_action :set_coach, only: [:show, :new, :create, :edit, :update, :destroy]
-  before_action :set_program, only: [:show, :create, :edit, :update, :destroy]
+  before_action :set_program, only: [:show, :edit, :update, :destroy]
 
   def index
     
@@ -16,13 +16,13 @@ class ProgramsController < ApplicationController
   end
 
   def edit
-
+    @spheres = Sphere.all.map{|s| [ s.name, s.id ] }
   end
 
   def create
     @program = Program.new(coach: @coach, title: params[:title], description: params[:description])
     
-    if set_coach_sphere && @program.save
+    if set_program_sphere && @program.save
       redirect_to coach_path(@coach),  :notice => "Le programme a bien été créé."
     else
       redirect_back(fallback_location: coach_path(@coach))
@@ -30,11 +30,17 @@ class ProgramsController < ApplicationController
   end
 
   def update
-
+    set_program_sphere
+    if @program.update(title: params[:title], description: params[:description])
+      redirect_to coach_program_path(@coach, @program),  :notice => "Votre programme a bien été modifié."
+    else
+      redirect_back(fallback_location: coach_program_path(@coach, @program))
+    end
   end
 
   def destroy
-    
+    @program.destroy
+    redirect_to coach_path(@coach)
   end
 
   private
@@ -47,7 +53,7 @@ class ProgramsController < ApplicationController
     @coach = Coach.find(params[:coach_id])
   end
 
-  def set_coach_sphere
+  def set_program_sphere
     if params[:program_sphere_id] != "" && ProgramSphere.create(program: @program, sphere_id: params[:program_sphere_id])
       return true
     end

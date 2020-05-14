@@ -47,11 +47,11 @@ ActiveRecord::Schema.define(version: 2020_05_05_084242) do
   end
 
   create_table "program_spheres", force: :cascade do |t|
-    t.bigint "program_id"
+    t.bigint "coach_id"
     t.bigint "sphere_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["program_id"], name: "index_program_spheres_on_program_id"
+    t.index ["coach_id"], name: "index_program_spheres_on_coach_id"
     t.index ["sphere_id"], name: "index_program_spheres_on_sphere_id"
   end
 
