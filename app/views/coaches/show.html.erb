@@ -2,8 +2,12 @@
   <h2>Infos personnelles</h2>
   <ul>
     <li><%= @coach.email%></li>
-    
     <li><%= @coach.description%></li>
+    <% if @coach.city %>
+      <li><%= @coach.city.name%></li>
+    <% else %>
+      <li>Renseignez votre localisation</li>
+    <% end %>
   </ul>
   <h2>Spheres</h2>
   <ul>

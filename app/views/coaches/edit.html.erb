@@ -10,10 +10,17 @@
     <%= text_field_tag 'description', @coach.description, class: 'form-control' %>
   </div>
   <br /> <br />
+  <% if !@coach.city %>
+  <div class="form-group">
+    <%= label_tag 'Ville' %>
+    <%= text_field_tag 'city', "", class: 'form-control' %>
+  </div>
+  <% else %>
   <div class="form-group">
     <%= label_tag 'Ville' %>
     <%= text_field_tag 'city', @coach.city.name, class: 'form-control' %>
   </div>
+  <% end %>
   <br /> <br />
   <div class="form-group">
       <%= label_tag 'Domaine' %>
