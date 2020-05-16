@@ -12,7 +12,7 @@
   <h2>Spheres</h2>
   <ul>
     <%@coach.spheres.each do |sphere|%>
-      <li><%=sphere.name%> <%= link_to "a", coach_sphere_path(sphere.id), method: :delete, class: "close"%> </li>
+      <li><%=sphere.name%> <%= link_to "a", coach_sphere_path(CoachSphere.find_by(coach: @coach, sphere: sphere).id), method: :delete, class: "close"%> </li>
     <% end %>
   </ul>
     <h2>Programmes</h2>
