@@ -10,4 +10,5 @@ class Coach < ApplicationRecord
   has_many :coach_spheres
   has_many :spheres, through: :coach_spheres
   has_many :programs
+  has_one_attached :avatar
 end
