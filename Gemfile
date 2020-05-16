@@ -73,6 +73,7 @@ gem 'mailjet'
 gem 'devise'
 gem 'gon'
 gem 'searchkick'
+gem "aws-sdk-s3", require: false
 
 group :development do
   gem "better_errors"
