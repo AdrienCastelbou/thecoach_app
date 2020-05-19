@@ -1,6 +1,7 @@
 class ProgramsController < ApplicationController
   before_action :set_coach, only: [:show, :new, :create, :edit, :update, :destroy]
   before_action :set_program, only: [:show, :edit, :update, :destroy]
+  before_action :is_program_coach, only: [:edit, :update, :destroy, :new, :create]
 
   def index
     
@@ -56,6 +57,12 @@ class ProgramsController < ApplicationController
   def set_program_sphere
     if params[:program_sphere_id] != "" && ProgramSphere.create(program: @program, sphere_id: params[:program_sphere_id])
       return true
+    end
+  end
+
+  def is_program_coach
+    if !member_signed_in? || current_member != @coach
+      redirect_to root_path, alert: "Accès non autorisé"
     end
   end
 
