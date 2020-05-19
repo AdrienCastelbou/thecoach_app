@@ -1,6 +1,6 @@
 class CoachesController < ApplicationController
   before_action :set_coach, only: [:show, :edit, :update, :destroy]
-
+  before_action :is_coach, only: [:edit, :updtae, :new, :destroy]
   def index
     @coaches = Coach.all
   end
@@ -56,6 +56,12 @@ class CoachesController < ApplicationController
   def set_coach_sphere
     if params[:sphere_id] != "" && CoachSphere.create(coach: @coach, sphere_id: params[:sphere_id])
       return true
+    end
+  end
+
+  def is_coach
+    if !member_signed_in? || current_member != @coach
+      redirect_to root_path, alert: "Accès non autorisé"
     end
   end
   

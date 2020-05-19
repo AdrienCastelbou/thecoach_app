@@ -15,7 +15,7 @@
     <% if @coach.city %>
       <li><%= @coach.city.name%></li>
     <% else %>
-      <li>Renseignez votre localisation</li>
+      <li>Pas de localisation renseignée</li>
     <% end %>
   </ul>
   <h2>Spheres</h2>
@@ -30,8 +30,10 @@
       <li><%= link_to program.title, coach_program_path(@coach, program.id)%> <%= link_to "<i class='fas fa-trash text-danger'></i>".html_safe, coach_program_path(@coach, program.id), method: :delete,  data: { confirm: 'Are you certain you want to delete this?' }%></li>
     <% end %>
   </ul>
-   <%= link_to "Créer un nouveau programme", new_coach_program_path(@coach)%>
-  <p>Pour pouvoir etre visible sur notre plateforme, vous devez completer votre profil !
-  <%= link_to "Modifier mon profil ", edit_coach_path(@coach)%></p>
-  <p>Modifier les infos du compte
-  <%= link_to 'Paramètres du compte',edit_coach_registration_path, class:'button' %></p>
+  <% if current_member == @coach %>
+    <%= link_to "Créer un nouveau programme", new_coach_program_path(@coach)%>
+    <p>Pour pouvoir etre visible sur notre plateforme, vous devez completer votre profil !
+    <%= link_to "Modifier mon profil ", edit_coach_path(@coach)%></p>
+    <p>Modifier les infos du compte
+    <%= link_to 'Paramètres du compte',edit_coach_registration_path, class:'button' %></p>
+  <% end %>

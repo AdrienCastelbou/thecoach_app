@@ -1,0 +1,27 @@
+<%if @coach.avatar.attached?%>
+  <%= image_tag @coach.avatar, alt: 'avatar' %>
+<%else%>
+  <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
+<%end%>
+  <h2>Infos personnelles</h2>
+  <ul>
+    <li><%= @coach.email%></li>
+    <li><%= @coach.description%></li>
+    <% if @coach.city %>
+      <li><%= @coach.city.name%></li>
+    <% else %>
+      <li>Pas de localisation renseignée</li>
+    <% end %>
+  </ul>
+  <h2>Spheres</h2>
+  <ul>
+    <%@coach.spheres.each do |sphere|%>
+      <li><%=sphere.name%> <%= link_to "a", coach_sphere_path(CoachSphere.find_by(coach: @coach, sphere: sphere).id), method: :delete, class: "close"%> </li>
+    <% end %>
+  </ul>
+    <h2>Programmes</h2>
+  <ul>
+    <%@coach.programs.each do |program|%>
+      <li><%= link_to program.title, coach_program_path(@coach, program.id)%> </li>
+    <% end %>
+  </ul>

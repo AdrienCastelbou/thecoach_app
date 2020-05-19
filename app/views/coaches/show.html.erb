@@ -1,1 +1,5 @@
-<%= render 'showCoachProfil'%>
+<% if current_member == @coach %>
+  <%= render 'showCoachProfil'%>
+<% else %>
+  <%= render 'showCoachProfilForUsers'%>
+<% end %>
