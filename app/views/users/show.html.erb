@@ -1,0 +1,5 @@
+<% if current_member == @user %>
+  <%= render 'showUser'%>
+<% else %>
+  <%= render 'showUserForUsers'%>
+<% end %>
