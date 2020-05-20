@@ -3,5 +3,6 @@ class StaticPagesController < ApplicationController
     @coaches = Coach.all
     @spheres = Sphere.all
     @programs = Program.all
+    @cities = City.all
   end
 end

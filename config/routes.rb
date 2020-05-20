@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :coach_spheres, only: [:create, :destroy]
   resources :users
   resources :spheres
+  resources :cities
 end
