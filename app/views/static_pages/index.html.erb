@@ -1,12 +1,42 @@
-    <div class="jumbotron jumbotron-fluid" >
-      <div class="container">
-        <h1 class="display-4">Les meilleurs coachs personnels proches de chez vous</h1>
-        <div class="row">
-          <form class="form-inline">
-            <input class="form-control mr-sm-2 search" type="search" placeholder="Domaine" aria-label="Search">
-            <input class="form-control mr-sm-2 search" type="search" placeholder="Pays, Ville, Région,..." aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0 valid-search" type="submit">Rechercher</button>
-          </form>
-        </div>
+  <div class="jumbotron jumbotron-fluid" >
+    <div class="container">
+      <h1 class="display-4">Les meilleurs coachs personnels proches de chez vous</h1>
+      <div class="row">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2 search" type="search" placeholder="Domaine" aria-label="Search">
+          <input class="form-control mr-sm-2 search" type="search" placeholder="Pays, Ville, Région,..." aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0 valid-search" type="submit">Rechercher</button>
+        </form>
       </div>
     </div>
+  </div>
+ 
+  <h1>Trouvez le coach qu'il vous faut</h1>
+  <div class="reasons_bloc">
+    <div class="listing">
+      <i class="fas fa-bullseye fa-3x "></i>
+      <p>Faites votre choix parmis nos profils vérifiés
+      </p>
+      <i class="fas fa-bullseye fa-3x "></i>
+      <p>Etablissez votre programme personnalisé ensemble
+      </p>
+      <i class="fas fa-bullseye fa-3x "></i>
+      <p>Pratiquez où vous voulez, chez vous ou dans nos infrastructures partenaires
+      </p>
+    </div>
+
+  <div class="section_title">
+    <div><h1>Les spécialités les plus recherchées</h1></div>
+    <div><a href="#"><i class="fas fa-arrow-circle-right fa-2x"></i></a></div>
+  </div>
+  <div class = "best_search">
+    <% @spheres.each do |sphere|%>
+      <div class="card <%=sphere.name%>" style="width: 18rem; height: 300px; background: url(<%= rails_blob_url(sphere.sphere_picture) %>); background-size: cover">
+        <div class="card-body">
+          <h5 class="card-title"><%= sphere.name%></h5>
+            <a href="#" class="btn btn-success">Découvrir</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
