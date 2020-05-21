@@ -47,7 +47,7 @@
   </div>
   <div class="regions">
   <% @cities.each do |city|%>
-  <div class='card <%=city.name%>' style='width: 18rem; height: 300pxbackground: url(<%= rails_blob_url(city.city_picture) %>); background-size: cover'>
+  <div class="card <%=city.name%>" style="width: 18rem; height: 300px; background: url(<%= rails_blob_url(city.city_picture) %>); background-size: cover">
     <%= link_to "<div class='card-body'><h5 class='card-title'>#{city.name}</h5></div>".html_safe, city_path(city)%>
   </div>
   <% end %>
