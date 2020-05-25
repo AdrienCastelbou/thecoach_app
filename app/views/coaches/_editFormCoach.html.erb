@@ -6,6 +6,11 @@
   </div>
   <br /> <br />
   <div class="form-group">
+    <%= label_tag 'Profession' %>
+    <%= text_field_tag 'subtitle', @coach.subtitle, class: 'form-control', :maxlength => 50 %>
+  </div>
+  <br /> <br />
+  <div class="form-group">
     <%= label_tag 'Description' %>
     <%= text_field_tag 'description', @coach.description, class: 'form-control' %>
   </div>
@@ -25,6 +30,11 @@
   <div class="form-group">
       <%= label_tag 'Domaine' %>
       <%= select_tag 'sphere_id', options_for_select(@spheres), prompt: "Sélectionner une catégorie", class:"u-full-width" %>
+  </div>
+  <br /> <br />
+  <div class="form-group">
+    <%= label_tag 'Tarif horaire' %>
+    <%= number_field_tag 'tariff', @coach.tariff, class: 'form-control'%>
   </div>
   <br /> <br />
   <div class="form-actions">

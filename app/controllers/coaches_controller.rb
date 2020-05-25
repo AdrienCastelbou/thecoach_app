@@ -23,7 +23,7 @@ class CoachesController < ApplicationController
 
   def update
     set_coach_sphere
-    if @coach.update(username: params[:username], description: params[:description], city: coach_city)
+    if @coach.update(username: params[:username], description: params[:description], city: coach_city, subtitle: params[:subtitle], tariff: params[:tariff])
       redirect_to coach_path(@coach),  :notice => "Votre profil a bien été modifié."
     else
       redirect_back(fallback_location: coach_path(@coach))

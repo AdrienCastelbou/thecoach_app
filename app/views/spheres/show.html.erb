@@ -1,12 +1,13 @@
 <% @coaches.each do |coach|%>
-  <div class="card" style="width: 18rem;">
-  <%= image_tag coach.avatar, alt: 'avatar', class: "card-img-top" if coach.avatar.attached?%>
-  <div class="card-body coach-card">
-    <h5 class="card-title"><%= coach.username %></h5>
-    
-    <p class="card-text">test
-    </p>
-    <%= link_to "Voir le profil", coach_path(coach), class: "btn btn-success"%>
-  </div>
-</div>
+  <%= link_to coach_path(coach), class: "coach-card-link" do%>
+    <div class="card" style="width: 18rem;">
+      <%= image_tag coach.avatar, alt: 'avatar', class: "card-img-top" if coach.avatar.attached?%>
+      <div class="card-body coach-card">
+        <h5 class="card-title"><%= coach.username %></h5>
+        
+        <p class="card-text"><%= coach.subtitle%></p>
+        <p class="card-text"><%= coach.tariff%>/h indicatif</p>>
+      </div>
+    </div>
+  <% end %>
 <% end %>
