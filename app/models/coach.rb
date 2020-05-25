@@ -9,6 +9,5 @@ class Coach < ApplicationRecord
   belongs_to :city, optional: true
   has_many :coach_spheres
   has_many :spheres, through: :coach_spheres
-  has_many :programs
   has_one_attached :avatar
 end
