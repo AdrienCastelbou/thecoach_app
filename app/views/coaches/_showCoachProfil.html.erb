@@ -24,14 +24,8 @@
       <li><%=sphere.name%> <%= link_to "a", coach_sphere_path(CoachSphere.find_by(coach: @coach, sphere: sphere).id), method: :delete, class: "close"%> </li>
     <% end %>
   </ul>
-    <h2>Programmes</h2>
-  <ul>
-    <%@coach.programs.each do |program|%>
-      <li><%= link_to program.title, coach_program_path(@coach, program.id)%> <%= link_to "<i class='fas fa-trash text-danger'></i>".html_safe, coach_program_path(@coach, program.id), method: :delete,  data: { confirm: 'Are you certain you want to delete this?' }%></li>
-    <% end %>
-  </ul>
+
   <% if current_member == @coach %>
-    <%= link_to "Créer un nouveau programme", new_coach_program_path(@coach)%>
     <p>Pour pouvoir etre visible sur notre plateforme, vous devez completer votre profil !
     <%= link_to "Modifier mon profil ", edit_coach_path(@coach)%></p>
     <p>Modifier les infos du compte

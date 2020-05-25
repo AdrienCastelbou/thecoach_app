@@ -18,10 +18,4 @@
     <%@coach.spheres.each do |sphere|%>
       <li><%=sphere.name%> <%= link_to "a", coach_sphere_path(CoachSphere.find_by(coach: @coach, sphere: sphere).id), method: :delete, class: "close"%> </li>
     <% end %>
-  </ul>
-    <h2>Programmes</h2>
-  <ul>
-    <%@coach.programs.each do |program|%>
-      <li><%= link_to program.title, coach_program_path(@coach, program.id)%> </li>
-    <% end %>
-  </ul>
+
