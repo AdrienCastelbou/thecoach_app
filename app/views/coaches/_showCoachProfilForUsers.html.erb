@@ -1,3 +1,22 @@
+<div class = "row", style = "justify-content: space-between; margin-top: 10px">
+<%if @coach.avatar.attached?%>
+  <%= image_tag @coach.avatar, alt: 'avatar', class: "avatar-circular col " %>
+<%else%>
+  <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
+<%end%>
+<div class = "col">
+  <h2><%= @coach.username%></h2>
+  <h4><%= @coach.subtitle%></h4>
+  <p><i class="fas fa-map-marker-alt text-success"></i> <%=@coach.city.name%></p>
+  <br><br>
+  <p>Tarif indicatif : <%=@coach.tariff%>/heure</p>
+</div>
+<div class = "col">
+  <%= mail_to @coach.email, "Contacter", class: "btn btn-success", style: "width: 100%" %>
+</div>
+</div>
+
+
 <%if @coach.avatar.attached?%>
   <%= image_tag @coach.avatar, alt: 'avatar' %>
 <%else%>

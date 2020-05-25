@@ -166,6 +166,16 @@
   text-decoration: none;
 }
 
+
+/* For Coach profil */
+
+.avatar-circular{
+  max-width: 200px;
+  max-height: 200px;
+  background-size: cover;
+  display: block;
+ }
+
 @media (max-width: 767.98px)
 
 {
@@ -184,4 +194,13 @@
   {
     margin: 5px;
   }
+  .avatar-circular{
+    max-width: 200px;
+    max-height: 200px;
+    background-size: cover;
+    display: block;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+   }
 }
