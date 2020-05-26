@@ -42,7 +42,9 @@ class CoachesController < ApplicationController
 
   def coach_city
     city = params[:city]
-    if @coach.city && @coach.city.name.downcase == city.downcase
+    if city == "" || city == nil
+      return false
+    elsif @coach.city && @coach.city.name.downcase == city.downcase
       return @coach.city
     else
       City.all.each do |old_city|

@@ -8,33 +8,13 @@
   <h2><%= @coach.username%></h2>
   <h4><%= @coach.subtitle%></h4>
   <p><i class="fas fa-map-marker-alt text-success"></i> <%=@coach.city.name%></p>
-  <br><br>
-  <p>Tarif indicatif : <%=@coach.tariff%>/heure</p>
+  <span class = "btn btn-info">
+  <p class = "font-weight-light">Tarif indicatif</p><p class = "font-weight-bold"><%=@coach.tariff%>/heure</p>
+  </span>
 </div>
 <div class = "col">
   <%= mail_to @coach.email, "Contacter", class: "btn btn-success", style: "width: 100%" %>
 </div>
 </div>
 
-
-<%if @coach.avatar.attached?%>
-  <%= image_tag @coach.avatar, alt: 'avatar' %>
-<%else%>
-  <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
-<%end%>
-  <h2>Infos personnelles</h2>
-  <ul>
-    <li><%= @coach.email%></li>
-    <li><%= @coach.description%></li>
-    <% if @coach.city %>
-      <li><%= @coach.city.name%></li>
-    <% else %>
-      <li>Pas de localisation renseignée</li>
-    <% end %>
-  </ul>
-  <h2>Spheres</h2>
-  <ul>
-    <%@coach.spheres.each do |sphere|%>
-      <li><%=sphere.name%> <%= link_to "a", coach_sphere_path(CoachSphere.find_by(coach: @coach, sphere: sphere).id), method: :delete, class: "close"%> </li>
-    <% end %>
 
